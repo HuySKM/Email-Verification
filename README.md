@@ -1,2 +1,2 @@
-# Email-Verification
-Laravel - Email Verification
+# Multi-Auth
+Laravel Multiple Authentication
