@@ -11,9 +11,15 @@
 */
 Route::get('url', 'KamalController@index')->name('url');
 
-Auth::routes(['verified'=>true]);
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+
+
+Route::get('member/profile', function ()
+{
+    return 'This is Profile';
+})->middleware('verified');
 
 Route::prefix('admin')->group(function () {
 Route::get('/', 'AdminController@index')->name('admin.dashboard');
@@ -24,11 +30,5 @@ Route::get('login', 'Auth\Admin\LoginController@login')->name('admin.auth.login'
 Route::post('login', 'Auth\Admin\LoginController@loginAdmin')->name('admin.auth.loginAdmin');
 Route::post('logout', 'Auth\Admin\LoginController@logout')->name('admin.auth.logout');
 });
-
-//Auth::routes();
-
-//Route::get('/home', 'HomeController@index')->name('home');
-//
-//Auth::routes();
 
 
